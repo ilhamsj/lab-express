@@ -77,7 +77,7 @@ exports.updateById = (req, res) => {
 
         res.status(200).json({
             success: true,
-            message: "Update Success",
+            message: "Data Successfully updated",
             data: products,
             code: 200,
             version: 1
