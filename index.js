@@ -4,11 +4,12 @@ const express = require("express");
 const app = express();
 const port = 3001;
 
+const { productRoutes } = require('./src/app/routes/index')
 
-const productRoutes = require('./src/app/routes/product.route')
-
+// body parser
 app.use(bodyParser.json())
 
+// routes
 app.use('/products', productRoutes)
 
 app.listen(port, () => {
