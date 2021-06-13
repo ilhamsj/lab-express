@@ -1,5 +1,5 @@
-const products = require("./product")
+const products = require("./product.model")
 
-export default {
+module.exports = {
     products
 }
