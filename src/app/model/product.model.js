@@ -18,4 +18,10 @@ Product.find = (id, result) => {
     })
 }
 
+Product.deleteById = (id, result) => {
+    database.query(`DELETE FROM products WHERE id = ?`, id, function (err, rows) {
+        result(err, rows)
+    })
+}
+
 module.exports = Product;

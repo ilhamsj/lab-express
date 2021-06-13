@@ -31,3 +31,19 @@ exports.find = (req, res) => {
         });
     });
 }
+
+exports.deleteById = (req, res) => {
+    products.deleteById(req.params.productId, (err, products) => {
+        if (err) {
+            console.error(err)
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Data Successfully deleted",
+            data: [],
+            code: 200,
+            version: 1
+        });
+    });
+}
