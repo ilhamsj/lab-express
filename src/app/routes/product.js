@@ -1,15 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.status(200).json({
-        success: true,
-        message: "Data Successfully retrieved",
-        data: [],
-        code: 200,
-        version: 1
-    });
-});
+const productController = require('../controllers/product.controller')
+
+router.get('/', productController.all);
 
 router.post('/', (req, res) => {
     res.status(200).json({

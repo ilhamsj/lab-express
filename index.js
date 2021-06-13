@@ -1,3 +1,4 @@
+const bodyParser = require("body-parser");
 const express = require("express");
 
 const app = express();
@@ -6,6 +7,7 @@ const port = 3001;
 
 const productRoutes = require('./src/app/routes/product')
 
+app.use(bodyParser.json())
 
 app.use('/products', productRoutes)
 
