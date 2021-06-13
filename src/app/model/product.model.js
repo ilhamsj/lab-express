@@ -30,4 +30,10 @@ Product.create = (param, result) => {
     })
 }
 
+Product.updateById = (param, result) => {
+    database.query(`UPDATE products SET name = ?, quantity = ?, image = ? WHERE id = ?`, param, function (err, rows) {
+        result(err, rows)
+    })
+}
+
 module.exports = Product;

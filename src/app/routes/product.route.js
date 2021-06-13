@@ -4,18 +4,9 @@ const router = express.Router();
 const { productController } = require('../controllers/index')
 
 router.get('/', productController.all);
+router.post('/', productController.store);
+router.patch('/', productController.updateById);
 router.get('/:productId', productController.find);
 router.delete('/:productId', productController.deleteById);
-router.post('/', productController.store);
-
-router.patch('/:productId', (req, res) => {
-    res.status(200).json({
-        success: true,
-        message: "Data Successfully retrieved",
-        data: req.params.productId,
-        code: 200,
-        version: 1
-    });
-});
 
 module.exports = router;

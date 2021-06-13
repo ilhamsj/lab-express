@@ -65,3 +65,22 @@ exports.store = (req, res) => {
         });
     });
 }
+
+exports.updateById = (req, res) => {
+
+    var param = Object.values(req.body);
+
+    products.updateById(param, (err, products) => {
+        if (err) {
+            console.error(err)
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Update Success",
+            data: products,
+            code: 200,
+            version: 1
+        });
+    });
+}
