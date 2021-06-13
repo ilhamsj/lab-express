@@ -24,4 +24,10 @@ Product.deleteById = (id, result) => {
     })
 }
 
+Product.create = (param, result) => {
+    database.query(`INSERT INTO products (name, quantity, image) VALUES (?, ?, ?)`, param, function (err, rows) {
+        result(err, rows)
+    })
+}
+
 module.exports = Product;

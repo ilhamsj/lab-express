@@ -47,3 +47,21 @@ exports.deleteById = (req, res) => {
         });
     });
 }
+
+exports.store = (req, res) => {
+
+    var data = Object.values(req.body);
+    products.create(data, (err, products) => {
+        if (err) {
+            console.error(err)
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Data Successfully stored",
+            data: products,
+            code: 200,
+            version: 1
+        });
+    });
+}
