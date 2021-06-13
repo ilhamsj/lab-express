@@ -15,3 +15,19 @@ exports.all = (req, res) => {
         });
     });
 }
+
+exports.find = (req, res) => {
+    products.find(req.params.productId, (err, products) => {
+        if (err) {
+            console.error(err)
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Data Successfully retrieved",
+            data: products,
+            code: 200,
+            version: 1
+        });
+    });
+}
