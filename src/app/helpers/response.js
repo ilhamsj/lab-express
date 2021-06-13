@@ -1,23 +1,18 @@
-const success = (message, data, code = 200) => {
-    return {
+exports.success = (res, message, data, code = 200) => {
+    res.status(code).json({
         success: true,
         message: message,
         data: data,
         code: code,
         version: 1
-    }
+    });
 }
 
-const fail = (message, code = 500) => {
-    return {
-        success: false,
+exports.fail = (res, message, code = 500) => {
+    res.status(code).json({
+        success: true,
         message: message,
         code: code,
         version: 1
-    }
-}
-
-export default {
-    success,
-    fail
+    });
 }

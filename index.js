@@ -5,7 +5,7 @@ const app = express();
 const port = 3001;
 
 
-const productRoutes = require('./src/app/routes/product')
+const productRoutes = require('./src/app/routes/product.route')
 
 app.use(bodyParser.json())
 
