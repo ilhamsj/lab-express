@@ -1,6 +1,6 @@
 const { products } = require('../model/index')
 
-exports.all = (req, res) => {
+const all = (req, res) => {
     products.get((err, products) => {
         if (err) {
             console.error(err)
@@ -16,7 +16,7 @@ exports.all = (req, res) => {
     });
 }
 
-exports.find = (req, res) => {
+const find = (req, res) => {
     products.find(req.params.productId, (err, products) => {
         if (err) {
             console.error(err)
@@ -32,7 +32,7 @@ exports.find = (req, res) => {
     });
 }
 
-exports.deleteById = (req, res) => {
+const deleteById = (req, res) => {
     products.deleteById(req.params.productId, (err, products) => {
         if (err) {
             console.error(err)
@@ -48,7 +48,7 @@ exports.deleteById = (req, res) => {
     });
 }
 
-exports.store = (req, res) => {
+const store = (req, res) => {
 
     var data = Object.values(req.body);
     products.create(data, (err, products) => {
@@ -66,7 +66,7 @@ exports.store = (req, res) => {
     });
 }
 
-exports.updateById = (req, res) => {
+const updateById = (req, res) => {
 
     var param = Object.values(req.body);
 
@@ -83,4 +83,12 @@ exports.updateById = (req, res) => {
             version: 1
         });
     });
+}
+
+module.exports = {
+    all,
+    find,
+    store,
+    updateById,
+    deleteById,
 }
