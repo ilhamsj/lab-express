@@ -13,7 +13,7 @@ Product.get = (result) => {
 }
 
 Product.find = (id, result) => {
-    database.query(`SELECT * FROM products WHERE id = ${id}`, function (err, rows) {
+    database.query(`SELECT * FROM products WHERE id = ?`, id, function (err, rows) {
         result(err, rows)
     })
 }
